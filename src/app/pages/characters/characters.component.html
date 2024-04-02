@@ -1,0 +1,122 @@
+<div class="container">
+  <form [formGroup]="formMultiple">
+    <div class="flex flex-row justify-center gap-6">
+
+
+       @if (!checkFilter){
+        <div class="">
+          <div>
+            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Busqueda Por Nombre</label>
+            <input type="text" id="first_name" formControlName="name" class="bg-custom-light-text border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-custom-dark-text dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required />
+        </div>
+
+
+        </div>
+       }
+
+
+
+      <div class="">
+        <label class="inline-flex items-center cursor-pointer ">
+          <input type="checkbox" value="" class="sr-only peer" formControlName="checked">
+          <div
+            class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+          </div>
+          <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Buqueda por Filtros</span>
+        </label>
+
+       @if (checkFilter ){
+        <div class="flex flex-wrap gap-3">
+          <div class="">
+            <label for="small" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Estado</label>
+            <select formControlName="status" id="small" class="block w-full p-2 mb-6 text-sm text-white border border-gray-300 rounded-lg bg-custom-light-text focus:ring-blue-500 focus:border-blue-500 dark:bg-custom-dark-text dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+              <option value="alive">Vivo</option>
+              <option value="dead">Muerto</option>
+              <option value="unknown">Desconocido</option>
+            </select>
+          </div>
+
+          <div class="">
+            <label for="small" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Especie</label>
+            <select formControlName="species" id="small" class="block w-full p-2 mb-6 text-sm text-white border border-gray-300 rounded-lg bg-custom-light-text focus:ring-blue-500 focus:border-blue-500 dark:bg-custom-dark-text dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+              <option value="Human">Humano</option>
+              <option value="Alien">Alien</option>
+
+            </select>
+          </div>
+
+
+          <!-- <div class="">
+            <label for="small" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo</label>
+            <select id="small" class="block w-full p-2 mb-6 text-sm text-white border border-gray-300 rounded-lg bg-custom-light-text focus:ring-blue-500 focus:border-blue-500 dark:bg-custom-dark-text dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option selected>Choose a country</option>
+              <option value="Chair">United States</option>
+              <option value="Clone">Canada</option>
+              <option value="Pickle">France</option>
+
+            </select>
+          </div> -->
+
+
+            <div class="">
+              <label for="small" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genero</label>
+              <select formControlName="gender" id="small" class="block w-full p-2 mb-6 text-sm text-white border border-gray-300 rounded-lg bg-custom-light-text focus:ring-blue-500 focus:border-blue-500 dark:bg-custom-dark-text dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                <option value="unknown">Desconocido</option>
+                <option value="genderless" >Sin Género</option>
+                <option value="male">Masculino</option>
+                <option value="female">Femenino</option>
+              </select>
+            </div>
+
+        </div>
+       }
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="container flex flex-wrap mt-4 gap-5 justify-center">
+
+
+@if(checkData){
+  @for (character of charactersList; track $index) {
+    <div class="max-w-sm w-72 bg-custom-light-highlight border border-gray-200 rounded-lg shadow dark:bg-custom-dark-highlight dark:border-gray-700">
+      <a [routerLink]="['/characters',character.id]" routerLinkActive="router-link-active" >
+          <img class="rounded-sm"  src="{{character.image}}" alt="{{character.name}}" />
+      </a>
+      <div class="p-5">
+          <a [routerLink]="['/characters',character.id]">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-custom-light-text dark:text-custom-dar">{{character.name}}</h5>
+          </a>
+          <!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Read more
+               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+          </a> -->
+      </div>
+    </div>
+  }
+}@else{
+  <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+    <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <span class="sr-only">Danger</span>
+    <div>
+      <span class="font-medium">No hay Información de Personajes con los Filtros de Busqueda
+        Seleccionados.
+      </span>
+
+    </div>
+  </div>
+}
+
+
+</div>

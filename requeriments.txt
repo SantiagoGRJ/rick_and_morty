@@ -1,0 +1,28 @@
+APP ANGULAR 17 RICK AND
+
+PAGES
+
+Home
+Characters[{
+    -> All Characters
+    -> Filter Characters -> Filter [{
+      name
+      status -> (alive, dead or unknown).
+      species
+      type
+      gender -> (female, male, genderless or unknown).
+    }]
+    -> Search Characters For ID
+    -> Select Unique Character
+}]
+
+Colors Palette [
+    -> orange #f3930b
+    -> white #fcf4a8
+    -> rojo #931f05
+    -> verde #5e9958
+    -> verde pant #938605
+    -> azul #346860
+
+]
+

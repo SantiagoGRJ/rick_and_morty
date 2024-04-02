@@ -1,0 +1,31 @@
+
+
+  <div class="dark:bg-custom-ligth-highlight  rounded-lg
+
+            grid grid-cols-1 bg-clip-padding p-6  md:grid-cols-5 gap-4 m-5 md:m-0  h-auto md:h-96
+             ">
+  <div class="md:col-span-2">
+    <img class="h-auto max-w-full md:max-w-lg rounded-lg" src="{{character?.image}}" alt="">
+  </div>
+  <div class="md:col-span-3">
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <h1 class="text-2xl font-extrabold text-custom-light-text dark:text-custom-dark-text">Name</h1>
+        <p class="text-lg italic font-bold text-gray-900 dark:text-white">{{character?.name}}</p>
+      </div>
+      <div>
+        <h1 class="text-2xl font-extrabold text-custom-light-text dark:text-custom-dark-text">Status</h1>
+        <p class="text-lg italic font-bold text-gray-900 dark:text-white">{{character?.status}}</p>
+      </div>
+      <div>
+        <h1 class="text-2xl font-extrabold text-custom-light-text dark:text-custom-dark-text">Gender</h1>
+        <p class="text-lg italic font-bold text-gray-900 dark:text-white">{{character?.gender}}</p>
+      </div>
+      <div>
+        <h1 class="text-2xl font-extrabold text-custom-light-text dark:text-custom-dark-text">Location</h1>
+        <p class="text-lg italic font-bold text-gray-900 dark:text-white">{{character?.location?.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
